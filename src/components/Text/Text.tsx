@@ -19,7 +19,6 @@ const Text = styled.p<TextProps>`
   font-size: ${({ theme, variant }) => theme.textVariants[variant].fontSize}px;
   line-height: ${({ lineHeight }) => lineHeight}px;
   font-family: ${({ fontFamily }) => fontFamily && fontFamily};
-
   ${({ align }) =>
     align &&
     resolveResponsiveProp({

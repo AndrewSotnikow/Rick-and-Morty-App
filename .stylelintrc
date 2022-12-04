@@ -1,0 +1,21 @@
+{
+  "processors": ["stylelint-processor-styled-components"],
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-styled-components",
+    "stylelint-config-standard",
+    "stylelint-config-prettier"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.{js,ts,jsx,tsx}"],
+      "customSyntax": "postcss-scss"
+    }
+  ],
+  "rules": {
+    "value-keyword-case": null,
+    "declaration-empty-line-before": null,
+    "font-family-name-quotes": null,
+    "no-empty-source": null
+  }
+}

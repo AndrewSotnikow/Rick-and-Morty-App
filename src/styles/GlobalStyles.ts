@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
-
     html,
     body {
         width: 100%;
@@ -10,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
         min-height: 100%;
         font-family: "Oswald", sans-serif;
     }
+
     html {
         overflow-x: hidden;
         font-size: 1px;
@@ -83,11 +83,13 @@ const GlobalStyles = createGlobalStyle`
         font-size: inherit;
         font-weight: inherit;
     }
+
     h1,
     h2{
         font-family: "OswaldBold", sans-serif;
         font-weight: 700;
     }
+
     h3,
     h4,
     h5,
@@ -95,6 +97,7 @@ const GlobalStyles = createGlobalStyle`
         font-family: "OswaldMedium", sans-serif;
         font-weight: 500;
     }
+    
     p {
         margin: 0;
         font-family: "OswaldRegular", sans-serif;
