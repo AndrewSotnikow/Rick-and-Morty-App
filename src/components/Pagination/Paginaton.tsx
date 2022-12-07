@@ -1,5 +1,6 @@
-import { Dispatch, SetStateAction, useEffect } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import Box from '../Box/Box'
+import Text from '../Text/Text'
 import PaginationButton from './styles'
 import ArrowLeft from '../../images/arrowLeft.svg'
 import ArrowRight from '../../images/arrowRight.svg'
@@ -28,7 +29,9 @@ const Pagination = ({
   return (
     <Box direction='row'>
       <PaginationButton
-        color='white'
+        bgColor='white'
+        textColor='primary_80'
+        variant='buttons'
         isHover={true}
         arrow={ArrowLeft}
         onClick={() => currentPage !== 1 && setCurrentPage(currentPage - 1)}
@@ -38,29 +41,37 @@ const Pagination = ({
           <PaginationButton
             key={index}
             onClick={() => setCurrentPage(page)}
-            color={page == currentPage ? 'blue_10' : 'white'}
+            bgColor={page == currentPage ? 'blue_10' : 'white'}
+            textColor='primary_80'
+            variant='buttons'
           >
             {page}
           </PaginationButton>
         )
       })}
-      <p>. . .</p>
+      <Text variant='buttons' color='primary_80' mt={8} pl={20} pr={20}>
+        ...
+      </Text>
       {pages.slice(-number).map((page, index) => {
         return (
           <PaginationButton
             key={index}
             onClick={() => setCurrentPage(page)}
-            color={page == currentPage ? 'blue_10' : 'white'}
+            bgColor={page == currentPage ? 'blue_10' : 'white'}
+            textColor='primary_80'
+            variant='buttons'
           >
             {page}
           </PaginationButton>
         )
       })}
       <PaginationButton
-        color='white'
+        bgColor='white'
+        textColor='primary_80'
         isHover={true}
         arrow={ArrowRight}
         onClick={() => currentPage !== pages.length && setCurrentPage(currentPage + 1)}
+        variant='buttons'
       />
     </Box>
   )

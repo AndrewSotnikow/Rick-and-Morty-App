@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './styles/_fonts.css'
 import Box from './components/Box/Box'
 import Text from './components/Text/Text'
-import PageContainer from './components/PageContainer/PageContainer'
 import Pagination from './components/Pagination/Paginaton'
 import { useFetch } from './hooks/useFetch'
+import PageContainer from './components/PageContainer/PageContainer'
+import Checkbox from './components/Checkbox/Checkbox'
+import TableHeader from './components/TableHeader/TableHeader';
 
 interface ICharacter {
   id: number
@@ -43,34 +45,35 @@ function App() {
       {loading ? (
         <h1>Loading</h1>
       ) : (
-        <PageContainer justify='flex-start' align='flex-start' mt={55} ml={103} mr={102} mb={54}>
-          <Text fontSize={40} lineHeight={40} variant='heading1' align='left'>
-            Characters
-          </Text>
-          <Box mt={24} direction='row'>
-            <Text fontSize={40} lineHeight={40} variant='heading1' color='red'>
-              Search
+        <Box justify='center' align='center' isFullWidth isFullHeight bgColor='primary_blue'>
+          <PageContainer>
+            <Text variant='heading1' align='left'>
+              Characters
             </Text>
-            <Text fontSize={40} lineHeight={40} variant='heading1'>
-              Species
-            </Text>
-          </Box>
-          <Box mt={25} direction='row'>
-            <Box ml={24} mt={12} mb={12}>
-              <ul>
-                {currentPosts.map((i: ICharacter) => (
-                  <li key={i.id}>{i.name}</li>
-                ))}
-              </ul>
+            <Box mt={24} direction='row'>
+              <Text variant='heading1' color='red'>
+                Search
+              </Text>
+              <Text variant='heading1'>Species</Text>
             </Box>
-          </Box>
-          <Pagination
-            totalCount={data.length}
-            postsPerPage={postsPerPage}
-            setCurrentPage={setCurrentPage}
-            currentPage={currentPage}
-          />
-        </PageContainer>
+            <Box direction='column' isFullWidth bgColor='white'>
+              <TableHeader  />
+              <Box ml={24} mt={12} mb={12}>
+                <ul>
+                  {currentPosts.map((i: ICharacter) => (
+                    <li key={i.id}>{i.name}</li>
+                  ))}
+                </ul>
+              </Box>
+            </Box>
+            <Pagination
+              totalCount={data.length}
+              postsPerPage={postsPerPage}
+              setCurrentPage={setCurrentPage}
+              currentPage={currentPage}
+            />
+          </PageContainer>
+        </Box>
       )}
     </>
   )

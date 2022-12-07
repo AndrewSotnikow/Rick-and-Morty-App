@@ -13,12 +13,6 @@ interface TextTypography {
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: Record<Color, string>
-    fonts: {
-      title: string
-      text: string
-      text_bold: string
-      text_light: string
-    }
     textVariants: Record<TextVariant, TextTypography>
   }
 }
