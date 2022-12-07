@@ -6,29 +6,7 @@ import Text from './components/Text/Text'
 import Pagination from './components/Pagination/Paginaton'
 import { useFetch } from './hooks/useFetch'
 import PageContainer from './components/PageContainer/PageContainer'
-import Checkbox from './components/Checkbox/Checkbox'
-import TableHeader from './components/TableHeader/TableHeader';
-
-interface ICharacter {
-  id: number
-  name: string
-  status: string
-  species: string
-  type: string
-  gender: string
-  origin: {
-    name: string
-    url: string
-  }
-  location: {
-    name: string
-    url: string
-  }
-  image: string
-  episode: [string]
-  url: string
-  created: string
-}
+import ContentTable from './components/ContentTable/ContentTable'
 
 function App() {
   const { loading, data, error } = useFetch('https://rickandmortyapi.com/api/character')
@@ -56,22 +34,15 @@ function App() {
               </Text>
               <Text variant='heading1'>Species</Text>
             </Box>
-            <Box direction='column' isFullWidth bgColor='white'>
-              <TableHeader  />
-              <Box ml={24} mt={12} mb={12}>
-                <ul>
-                  {currentPosts.map((i: ICharacter) => (
-                    <li key={i.id}>{i.name}</li>
-                  ))}
-                </ul>
-              </Box>
+            <ContentTable data={currentPosts} />
+            <Box align='flex-end' isFullWidth mt={43}>
+              <Pagination
+                totalCount={data.length}
+                postsPerPage={postsPerPage}
+                setCurrentPage={setCurrentPage}
+                currentPage={currentPage}
+              />
             </Box>
-            <Pagination
-              totalCount={data.length}
-              postsPerPage={postsPerPage}
-              setCurrentPage={setCurrentPage}
-              currentPage={currentPage}
-            />
           </PageContainer>
         </Box>
       )}

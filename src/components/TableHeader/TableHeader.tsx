@@ -13,27 +13,27 @@ const TableHeader = () => {
       <Checkbox mr={24} isChecked={true} />
       <Box direction='row' isFullWidth>
         <Box mr={24} isFullWidth>
-          <Text variant='heading2' color='primary_80'>
+          <Text variant='heading3' color='primary_80'>
             Name
           </Text>
         </Box>
         <Box mr={24} isFullWidth>
-          <Text variant='heading2' color='primary_80'>
+          <Text variant='heading3' color='primary_80'>
             Avatar
           </Text>
         </Box>
         <Box mr={24} isFullWidth>
-          <Text variant='heading2' color='primary_80'>
+          <Text variant='heading3' color='primary_80'>
             Origin
           </Text>
         </Box>
         <Box mr={24} isFullWidth>
-          <Text variant='heading2' color='primary_80'>
+          <Text variant='heading3' color='primary_80'>
             Gender
           </Text>
         </Box>
         <Box mr={24} isFullWidth>
-          <Text variant='heading2' color='primary_80'>
+          <Text variant='heading3' color='primary_80'>
             Status
           </Text>
         </Box>

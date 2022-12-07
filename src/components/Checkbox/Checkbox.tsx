@@ -14,9 +14,9 @@ interface IHiddenCheckbox {
 const CheckboxContainer = styled.div<Spacing>`
   display: inline-block;
   vertical-align: middle;
-  ${spacingMixin}
   width: 18px;
   height: 18px;
+  ${spacingMixin}
 `
 
 const Icon = styled.svg`

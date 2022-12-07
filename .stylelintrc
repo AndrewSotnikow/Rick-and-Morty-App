@@ -16,6 +16,12 @@
     "value-keyword-case": null,
     "declaration-empty-line-before": null,
     "font-family-name-quotes": null,
-    "no-empty-source": null
+    "no-empty-source": null,
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignoreTypes": ["/-styled-mixin/", "$dummyValue"]
+      }
+    ]
   }
 }

@@ -1,7 +1,7 @@
 import { css } from 'styled-components/macro'
 import { resolveResponsiveProp } from './mixins'
 
-type Space = 8 | 12 | 20 | 24 | 25 | 54 | 55 | 102 | 103
+type Space = 4 | 8 | 12 | 16 | 17 | 20 | 24 | 25 | 43 | 54 | 55 | 102 | 103
 
 export type ResponsiveSpace = Space
 
