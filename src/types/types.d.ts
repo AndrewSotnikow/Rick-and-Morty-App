@@ -18,3 +18,5 @@ export interface ICharacter {
   url: string
   created: string
 }
+
+export type InputType = 'text' | 'email' | 'tel' | 'textarea' | 'password' | 'number'

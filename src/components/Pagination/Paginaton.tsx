@@ -10,6 +10,7 @@ interface IPaginationProps {
   postsPerPage: number
   setCurrentPage: Dispatch<SetStateAction<number>>
   currentPage: number
+  buttonsRange: number
 }
 
 const Pagination = ({
@@ -17,6 +18,7 @@ const Pagination = ({
   postsPerPage,
   setCurrentPage,
   currentPage,
+  buttonsRange,
 }: IPaginationProps) => {
   const pages: number[] = []
 
@@ -25,7 +27,7 @@ const Pagination = ({
   for (let i = 1; i <= totalPageCount; i++) {
     pages.push(i)
   }
-  const number = 3
+
   return (
     <Box direction='row'>
       <PaginationButton
@@ -36,7 +38,7 @@ const Pagination = ({
         arrow={ArrowLeft}
         onClick={() => currentPage !== 1 && setCurrentPage(currentPage - 1)}
       />
-      {pages.slice(currentPage - 1, currentPage - 1 + number).map((page, index) => {
+      {pages.slice(currentPage - 1, currentPage - 1 + buttonsRange).map((page, index) => {
         return (
           <PaginationButton
             key={index}
@@ -49,22 +51,26 @@ const Pagination = ({
           </PaginationButton>
         )
       })}
-      <Text variant='buttons' color='primary_80' mt={8} pl={20} pr={20}>
-        ...
-      </Text>
-      {pages.slice(-number).map((page, index) => {
-        return (
-          <PaginationButton
-            key={index}
-            onClick={() => setCurrentPage(page)}
-            bgColor={page == currentPage ? 'blue_10' : 'white'}
-            textColor='primary_80'
-            variant='buttons'
-          >
-            {page}
-          </PaginationButton>
-        )
-      })}
+      {totalPageCount > 5 && currentPage < totalPageCount - buttonsRange - 3 && (
+        <Text variant='buttons' color='primary_80' mt={8} pl={20} pr={20}>
+          ...
+        </Text>
+      )}
+      {totalPageCount > 5 &&
+        currentPage < totalPageCount - buttonsRange - 3 &&
+        pages.slice(-buttonsRange).map((page, index) => {
+          return (
+            <PaginationButton
+              key={index}
+              onClick={() => setCurrentPage(page)}
+              bgColor={page == currentPage ? 'blue_10' : 'white'}
+              textColor='primary_80'
+              variant='buttons'
+            >
+              {page}
+            </PaginationButton>
+          )
+        })}
       <PaginationButton
         bgColor='white'
         textColor='primary_80'
