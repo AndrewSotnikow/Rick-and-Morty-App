@@ -21,6 +21,12 @@ function App() {
     return names.length ? names : data
   }
 
+  const species = new Set(
+    data.map((item: ICharacter) => {
+      return item.species
+    }),
+  )
+
   const lastPostIndex = currentPage * postsPerPage
   const firstPostIndex = lastPostIndex - postsPerPage
   const currentPosts = dataToRender().slice(firstPostIndex, lastPostIndex)

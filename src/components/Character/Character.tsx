@@ -6,6 +6,7 @@ import Dead from '../../images/death.svg'
 import Checkbox from '../Checkbox/Checkbox'
 import Image from '../Image/Image'
 import styled from 'styled-components'
+import { useState } from 'react'
 
 interface ICharacterProps {
   image: string
@@ -33,7 +34,7 @@ const statusIcon = (status: string) => {
 }
 
 const Character = ({ image, name, species, location, gender, status }: ICharacterProps) => {
-  console.log(location)
+  const [checked, setChecked] = useState(false)
   return (
     <Wrapper
       pt={16}
@@ -43,7 +44,7 @@ const Character = ({ image, name, species, location, gender, status }: ICharacte
       isFullWidth
       bgColor={status === 'Dead' ? 'blue_5' : 'white'}
     >
-      <Checkbox isChecked={true} mr={24} mt={8} />
+      <Checkbox isChecked={checked} mr={24} mt={8} onClick={() => setChecked(!checked)} />
       <Box isFullWidth mt={4}>
         <Text variant='heading3' color={status === 'Dead' ? 'primary_70' : 'primary_100'}>
           {name}
