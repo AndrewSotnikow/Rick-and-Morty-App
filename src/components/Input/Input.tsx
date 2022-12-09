@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ChangeEvent } from 'react'
+import { ChangeEvent, forwardRef, ForwardedRef } from 'react'
 import search from '../../images/search.svg'
 import { InputType } from '../../types/types'
 
@@ -11,12 +11,13 @@ export interface InputProps {
 }
 
 const Wrapper = styled.div`
-  background: #ffffff;
-  border: 1px solid #bac6d8;
+  background: ${({ theme }) => theme.colors.white};
+  border: 1px solid ${({ theme }) => theme.colors.blue_40};
   border-radius: 5px;
   width: 140px;
   height: 40px;
   padding: 11px 12px;
+
   &::after {
     content: '';
     position: absolute;
@@ -30,20 +31,29 @@ const Wrapper = styled.div`
 
 const Field = styled.input<InputProps>`
   max-width: 80%;
+  font-family: 'OswaldRegular', sans-serif;
+  font-size: 14px;
+  line-height: 130%;
+  color: ${({ theme }) => theme.colors.primary_50};
+
   &::placeholder {
-    font-family: 'OswaldRegular';
+    font-family: 'OswaldRegular', sans-serif;
     font-size: 14px;
     line-height: 130%;
     color: ${({ theme }) => theme.colors.primary_50};
   }
 `
 
-const Input = ({ type, label, placeholder, onChange }: InputProps) => {
-  return (
-    <Wrapper>
-      <Field type={type} label={label} placeholder={placeholder} onChange={onChange} />
-    </Wrapper>
-  )
-}
+const Input = forwardRef(
+  ({ type, label, placeholder, onChange }: InputProps, ref: ForwardedRef<HTMLInputElement>) => {
+    return (
+      <Wrapper>
+        <Field ref={ref} type={type} label={label} placeholder={placeholder} onChange={onChange} />
+      </Wrapper>
+    )
+  },
+)
+
+Input.displayName = 'Input'
 
 export default Input

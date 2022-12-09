@@ -50,6 +50,16 @@ const theme: DefaultTheme = {
       lineHeight: 130,
       fontFamily: 'OswaldMedium',
     },
+    placeholder: {
+      fontSize: 14,
+      lineHeight: 130,
+      fontFamily: 'OswaldMedium',
+    },
+    dropdown: {
+      fontSize: 13,
+      lineHeight: 130,
+      fontFamily: 'OswaldRegular',
+    },
   },
 }
 

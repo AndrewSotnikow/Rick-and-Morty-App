@@ -5,7 +5,7 @@ import { TextVariant, Color } from '../../styles/types'
 type Align = 'left' | 'right' | 'center'
 
 export interface TextProps extends Spacing {
-  variant: TextVariant
+  variant?: TextVariant
   fontWeight?: 'Regular' | 'Medium' | 'Bold'
   color?: Color
   align?: Align
