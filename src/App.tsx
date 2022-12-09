@@ -23,7 +23,7 @@ function App() {
   const [resetDropdown, setResetDropdown] = useState(false)
   const postsPerPage = 5
   const inputRef = useRef(null) as RefObject<HTMLInputElement>
-  let inputRefValue = inputRef.current && inputRef.current.value
+  const inputRefValue = inputRef.current && inputRef.current.value
 
   const findSpecies = (): string[] => {
     const selectedSpecies: string[] = Array.from(
@@ -72,7 +72,7 @@ function App() {
       setNames([])
       setSpecies(filterBySpecies())
       if (inputRef.current) {
-        inputRefValue = ''
+        inputRef.current.value = ''
       }
     }
     if (selectedSpecies.length === 0) {
