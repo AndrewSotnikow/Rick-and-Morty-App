@@ -22,6 +22,7 @@ export interface BoxProps extends Spacing {
   wrap?: Wrap
   gap?: number
   isFullWidth?: boolean
+  isFullHeight?: boolean
   hasNoShrink?: boolean
 }
 
@@ -33,6 +34,12 @@ const Box = styled.div<BoxProps>`
     isFullWidth &&
     css`
       width: 100%;
+    `}
+
+  ${({ isFullHeight }) =>
+    isFullHeight &&
+    css`
+      height: 100%;
     `}
 
   ${({ hasNoShrink }) =>

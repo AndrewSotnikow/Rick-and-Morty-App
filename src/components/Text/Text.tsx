@@ -5,10 +5,7 @@ import { TextVariant, Color } from '../../styles/types'
 type Align = 'left' | 'right' | 'center'
 
 export interface TextProps extends Spacing {
-  fontSize: number
-  lineHeight: number
-  variant: TextVariant
-  fontFamily?: string
+  variant?: TextVariant
   fontWeight?: 'Regular' | 'Medium' | 'Bold'
   color?: Color
   align?: Align
@@ -16,9 +13,10 @@ export interface TextProps extends Spacing {
 
 const Text = styled.p<TextProps>`
   color: ${({ theme, color }) => color && theme.colors[color]};
+  font-family: ${({ theme, variant }) => theme.textVariants[variant].fontFamily};
   font-size: ${({ theme, variant }) => theme.textVariants[variant].fontSize}px;
-  line-height: ${({ lineHeight }) => lineHeight}px;
-  font-family: ${({ fontFamily }) => fontFamily && fontFamily};
+  line-height: ${({ theme, variant }) => theme.textVariants[variant].lineHeight}%;
+
   ${({ align }) =>
     align &&
     resolveResponsiveProp({

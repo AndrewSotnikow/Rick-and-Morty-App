@@ -16,18 +16,12 @@ const colorNames = {
   blue_40: '#BAC6D8',
   blue_100: '#0088DA',
   primary_blue: '#F5F8FD',
-  white: 'FFFFFF',
+  white: '#FFFFFF',
 }
 
 const theme: DefaultTheme = {
   colors: {
     ...colorNames,
-  },
-  fonts: {
-    title: 'PlutoBold',
-    text: 'Gotham Rounded Medium',
-    text_bold: 'Gotham Rounded Bold',
-    text_light: 'Gotham Rounded Light',
   },
 
   textVariants: {
@@ -48,6 +42,21 @@ const theme: DefaultTheme = {
     },
     body: {
       fontSize: 15,
+      lineHeight: 130,
+      fontFamily: 'OswaldRegular',
+    },
+    buttons: {
+      fontSize: 14,
+      lineHeight: 130,
+      fontFamily: 'OswaldMedium',
+    },
+    placeholder: {
+      fontSize: 14,
+      lineHeight: 130,
+      fontFamily: 'OswaldMedium',
+    },
+    dropdown: {
+      fontSize: 13,
       lineHeight: 130,
       fontFamily: 'OswaldRegular',
     },
