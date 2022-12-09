@@ -15,8 +15,9 @@ export const useFetch = (url: string): IUseFetchReturn => {
   const shouldFetch = useRef(true)
 
   const fetchData = async (url: string) => {
-    setLoading(true)
     try {
+      setLoading(true)
+
       const response = await axios.get(url, {
         headers: {
           Accept: 'application/json',
@@ -28,13 +29,15 @@ export const useFetch = (url: string): IUseFetchReturn => {
         setData((prev) => [...prev, ...results])
       }
       if (info.next) {
-        fetchData(info.next)
         setLoading(true)
+        fetchData(info.next)
       } else {
         setLoading(false)
       }
       return
     } catch (error) {
+      setLoading(false)
+
       if (isAxiosError(error)) {
         console.log('response status is: ', error.message)
 

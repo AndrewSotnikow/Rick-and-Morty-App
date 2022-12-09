@@ -5,8 +5,8 @@ import Unknown from '../../images/unknown.svg'
 import Dead from '../../images/death.svg'
 import Checkbox from '../Checkbox/Checkbox'
 import Image from '../Image/Image'
-import styled from 'styled-components'
 import { useState } from 'react'
+import { Wrapper } from './styles'
 
 interface ICharacterProps {
   image: string
@@ -16,10 +16,6 @@ interface ICharacterProps {
   gender: string
   status: string
 }
-
-const Wrapper = styled(Box)`
-  border-top: 1px solid ${({ theme }) => theme.colors.blue_15};
-`
 
 const statusIcon = (status: string) => {
   let image = ''

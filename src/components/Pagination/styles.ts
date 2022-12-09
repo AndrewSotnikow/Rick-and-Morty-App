@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { Color, TextVariant } from '../../styles/types'
 
-interface IPaginationButtonProps {
+export interface IPaginationButtonProps {
   bgColor: Color
   textColor?: Color
   isHover?: boolean
@@ -9,7 +9,7 @@ interface IPaginationButtonProps {
   variant: TextVariant
 }
 
-const PaginationButton = styled.button<IPaginationButtonProps>`
+export const PaginationButton = styled.button<IPaginationButtonProps>`
   background-color: ${({ theme, bgColor }) => theme.colors[bgColor]};
   color: ${({ theme, textColor }) => theme.colors[textColor]};
   border: 1px solid ${({ theme }) => theme.colors.blue_40};
