@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { isAxiosError } from 'axios'
 import { useState, useEffect, useRef } from 'react'
+import { ICharacter } from '@/types/types'
 
 interface IUseFetchReturn {
   loading: boolean
-  data: any
+  data: ICharacter[]
   error: string
 }
 
 export const useFetch = (url: string): IUseFetchReturn => {
-  const [data, setData] = useState<any[]>([])
+  const [data, setData] = useState<ICharacter[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const shouldFetch = useRef(true)
