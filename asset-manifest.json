@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Rick-Morty/static/css/main.ba0b6a9f.css",
+    "main.js": "/Rick-Morty/static/js/main.5691bbff.js",
+    "static/media/Oswald-Bold.ttf": "/Rick-Morty/static/media/Oswald-Bold.87c9feafd7b2f3fd7992.ttf",
+    "static/media/Oswald-Medium.ttf": "/Rick-Morty/static/media/Oswald-Medium.292bdf409c7b9c1c5683.ttf",
+    "static/media/Oswald-Regular.ttf": "/Rick-Morty/static/media/Oswald-Regular.e815068d369177121fd8.ttf",
+    "static/media/unknown.svg": "/Rick-Morty/static/media/unknown.9a3d86ab77f4563d3d7f8253a7ac644f.svg",
+    "static/media/death.svg": "/Rick-Morty/static/media/death.bc94d5b25fbeb7685a4cba134ae2e837.svg",
+    "static/media/alive.svg": "/Rick-Morty/static/media/alive.e79881061ca5790a67898e7173b69845.svg",
+    "static/media/search.svg": "/Rick-Morty/static/media/search.5ae5fcdf6f51703a42a7169a9abb13ba.svg",
+    "index.html": "/Rick-Morty/index.html",
+    "static/media/arrowRight.svg": "/Rick-Morty/static/media/arrowRight.99cdf94f8d10604f4b13c8569a5b7c4d.svg",
+    "static/media/arrowLeft.svg": "/Rick-Morty/static/media/arrowLeft.20949e0512f3290899d0964a5fc372b7.svg",
+    "static/media/triangle.svg": "/Rick-Morty/static/media/triangle.b3d41f5b6b559a9c60362a915a639b9f.svg",
+    "main.ba0b6a9f.css.map": "/Rick-Morty/static/css/main.ba0b6a9f.css.map",
+    "main.5691bbff.js.map": "/Rick-Morty/static/js/main.5691bbff.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ba0b6a9f.css",
+    "static/js/main.5691bbff.js"
+  ]
+}
