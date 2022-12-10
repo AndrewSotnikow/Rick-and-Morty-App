@@ -7,7 +7,7 @@ const Dropdown = ({ data, placeholder, callback, reset }: DropdownProps) => {
   const [selectedSpecies, setSelectedSpecies] = useState<string[]>([])
 
   useEffect(() => {
-    setSelectedSpecies([])
+    reset && setSelectedSpecies([])
   }, [reset])
 
   useEffect(() => {

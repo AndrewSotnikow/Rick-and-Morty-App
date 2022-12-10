@@ -2,7 +2,10 @@ import { forwardRef, ForwardedRef } from 'react'
 import { Field, Wrapper, InputProps } from './styles'
 
 const Input = forwardRef(
-  ({ type, label, placeholder, onChange, id }: InputProps, ref: ForwardedRef<HTMLInputElement>) => {
+  (
+    { type, label, placeholder, onChange, id, value }: InputProps,
+    ref: ForwardedRef<HTMLInputElement>,
+  ) => {
     return (
       <Wrapper>
         <Field
@@ -12,6 +15,7 @@ const Input = forwardRef(
           label={label}
           placeholder={placeholder}
           onChange={onChange}
+          value={value}
         />
       </Wrapper>
     )

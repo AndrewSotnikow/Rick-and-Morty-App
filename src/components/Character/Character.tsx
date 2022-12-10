@@ -45,7 +45,7 @@ const Character = ({ image, name, species, location, gender, status }: ICharacte
         <Text variant='heading3' color={status === 'Dead' ? 'primary_70' : 'primary_100'}>
           {name}
         </Text>
-        <Text variant='body' color={status === 'Dead' ? 'primary_50' : 'primary_80'}>
+        <Text variant='body' color={status === 'Dead' ? 'primary_50' : 'primary_70'}>
           {species}
         </Text>
       </Box>
@@ -55,7 +55,13 @@ const Character = ({ image, name, species, location, gender, status }: ICharacte
       <Box isFullWidth mt={8}>
         <Text
           variant='body'
-          color={status === 'Dead' && location === 'unknown' ? 'primary_25' : 'primary_100'}
+          color={
+            status === 'Dead' && location === 'unknown'
+              ? 'primary_25'
+              : status === 'Dead'
+              ? 'primary_70'
+              : 'primary_100'
+          }
         >
           {location}
         </Text>

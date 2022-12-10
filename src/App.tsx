@@ -21,6 +21,7 @@ function App() {
   const [species, setSpecies] = useState<ICharacter[]>([])
   const [selectedSpecies, setSelectedSpecies] = useState<string[]>([])
   const [resetDropdown, setResetDropdown] = useState(false)
+  const [inputValue, setInputValue] = useState('')
   const postsPerPage = 5
   const inputRef = useRef(null) as RefObject<HTMLInputElement>
   const inputRefValue = inputRef.current && inputRef.current.value
@@ -43,6 +44,7 @@ function App() {
 
   const filterName = (e: ChangeEvent<HTMLInputElement>, data: ICharacter[]) => {
     const search = e?.target?.value?.toLowerCase()
+    setInputValue(search)
     const filteredNames = data.filter((item) => {
       return item.name.toLowerCase().includes(search)
     })
@@ -64,21 +66,22 @@ function App() {
   const firstPostIndex = lastPostIndex - postsPerPage
   const currentPosts = dataToRender().slice(firstPostIndex, lastPostIndex)
 
+  // Synchronize search field and dropdown
+
   useEffect(() => {
     if (names.length !== 0) {
-      setSelectedSpecies([])
+      setCurrentPage(1)
     }
     if (selectedSpecies.length !== 0) {
+      setResetDropdown(false)
       setNames([])
       setSpecies(filterBySpecies())
-      if (inputRef.current) {
-        inputRef.current.value = ''
-      }
-    }
-    if (selectedSpecies.length === 0) {
+      setCurrentPage(1)
+    } else if (selectedSpecies.length === 0) {
       setSpecies([])
+      setCurrentPage(1)
     }
-  }, [names.length, selectedSpecies.length, inputRefValue])
+  }, [names.length, selectedSpecies.length])
 
   return (
     <>
@@ -114,6 +117,7 @@ function App() {
                 onChange={(e) => {
                   filterName(e, data)
                 }}
+                value={selectedSpecies.length ? '' : inputValue}
               />
               <Dropdown
                 placeholder='Species'

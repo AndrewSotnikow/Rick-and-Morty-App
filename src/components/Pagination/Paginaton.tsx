@@ -38,19 +38,33 @@ const Pagination = ({
         arrow={ArrowLeft}
         onClick={() => currentPage !== 1 && setCurrentPage(currentPage - 1)}
       />
-      {pages.slice(currentPage - 1, currentPage - 1 + buttonsRange).map((page, index) => {
-        return (
-          <PaginationButton
-            key={index}
-            onClick={() => setCurrentPage(page)}
-            bgColor={page == currentPage ? 'blue_10' : 'white'}
-            textColor='primary_80'
-            variant='buttons'
-          >
-            {page}
-          </PaginationButton>
-        )
-      })}
+      {totalPageCount <= 6
+        ? pages.map((page, index) => {
+            return (
+              <PaginationButton
+                key={index}
+                onClick={() => setCurrentPage(page)}
+                bgColor={page == currentPage ? 'blue_10' : 'white'}
+                textColor='primary_80'
+                variant='buttons'
+              >
+                {page}
+              </PaginationButton>
+            )
+          })
+        : pages.slice(currentPage - 1, currentPage - 1 + buttonsRange).map((page, index) => {
+            return (
+              <PaginationButton
+                key={index}
+                onClick={() => setCurrentPage(page)}
+                bgColor={page == currentPage ? 'blue_10' : 'white'}
+                textColor='primary_80'
+                variant='buttons'
+              >
+                {page}
+              </PaginationButton>
+            )
+          })}
       {totalPageCount > 5 && currentPage < totalPageCount - buttonsRange - 3 && (
         <Text variant='buttons' color='primary_80' mt={8} pl={20} pr={20}>
           ...

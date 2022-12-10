@@ -8,6 +8,7 @@ export interface InputProps {
   label?: string
   placeholder?: string
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+  value: string
 }
 
 export const Wrapper = styled.div`

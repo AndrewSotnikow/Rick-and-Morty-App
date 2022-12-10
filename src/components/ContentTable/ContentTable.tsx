@@ -2,16 +2,20 @@ import TableHeader from '../TableHeader/TableHeader'
 import Character from '../Character/Character'
 import Box from '../Box/Box'
 import { ICharacter } from '../../types/types'
-
+import styled from 'styled-components'
 interface IContentTable {
   data: ICharacter[]
 }
+
+const Wrapper = styled(Box)`
+  min-height: 415px;
+`
 
 const ContentTable = ({ data }: IContentTable) => {
   return (
     <Box direction='column' isFullWidth bgColor='white'>
       <TableHeader />
-      <Box isFullWidth>
+      <Wrapper isFullWidth>
         {data.map((i: ICharacter) => (
           <Character
             key={i.id}
@@ -23,7 +27,7 @@ const ContentTable = ({ data }: IContentTable) => {
             status={i.status}
           />
         ))}
-      </Box>
+      </Wrapper>
     </Box>
   )
 }
