@@ -78,8 +78,8 @@ function App() {
       setSpecies(filterBySpecies())
       setCurrentPage(1)
     } else if (selectedSpecies.length === 0) {
-      setSpecies([])
       setCurrentPage(1)
+      setSpecies([])
     }
   }, [names.length, selectedSpecies.length])
 
