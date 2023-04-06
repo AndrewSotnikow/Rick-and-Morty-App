@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState, ChangeEvent, useEffect, useRef, RefObject, useContext } from 'react'
-import '@/styles/_fonts.css'
+import { useState } from 'react'
 import Box from '@/components/Box/Box'
 import Pagination from '@/components/Pagination/Paginaton'
 import { useFetch } from '@/hooks/useFetch'
@@ -20,10 +19,8 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1)
   const [dataToRender, setDataToRender] = useState<ICharacter[]>([])
   const [totalCountPage, setTotalCountPage] = useState(0)
+
   // Pagination
-
-  // console.log(totalCountPage)
-
   const lastPostIndex = currentPage * postsPerPage
   const firstPostIndex = lastPostIndex - postsPerPage
   const itemsToRender = dataToRender.slice(firstPostIndex, lastPostIndex)
@@ -45,15 +42,13 @@ function App() {
               setTotalCountPage={setTotalCountPage}
             />
             <ContentTable data={itemsToRender} />
-            <Box align='flex-end' isFullWidth mt={43}>
-              <Pagination
-                totalCount={totalCountPage}
-                postsPerPage={postsPerPage}
-                setCurrentPage={setCurrentPage}
-                currentPage={currentPage}
-                buttonsRange={3}
-              />
-            </Box>
+            <Pagination
+              totalCount={totalCountPage}
+              postsPerPage={postsPerPage}
+              setCurrentPage={setCurrentPage}
+              currentPage={currentPage}
+              buttonsRange={3}
+            />
           </PageContainer>
         </Box>
       )}
